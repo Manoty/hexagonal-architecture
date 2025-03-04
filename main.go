@@ -31,4 +31,12 @@ func main() {
 	mobileMoneyOrder := adapters.NewMobileMoneyOrderAdapter(lemonadeStand)
 	fmt.Println("\nProcessing Mobile Money Order:")
 	mobileMoneyOrder.PlaceOrder(20.0)
+
+
+	// Use the mock Stripe adapter
+	stripe := adapters.NewStripePaymentAdapter()
+
+	// Simulate a payment
+	fmt.Println("\nProcessing Stripe Order:")
+	stripe.ProcessPayment(10.00, "USD")
 }
